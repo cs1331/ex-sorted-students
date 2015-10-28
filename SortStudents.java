@@ -38,12 +38,11 @@ public class SortStudents {
         Collections.sort(students,
             new Comparator<Student>() {
                 public int compare(Student s1, Student s2) {
-                    float gradeDiff = s1.getGrade() - s2.getGrade();
-                    if (0 == gradeDiff) {
-                        return s1.getGTID() - s2.getGTID();
-                    } else {
-                        return (int) Math.ceil(gradeDiff);
+                    int comp = Float.compare(s1.getGrade(), s2.getGrade());
+                    if (0 == comp) {
+                        comp = s1.getGTID() - s2.getGTID();
                     }
+                    return comp;
                 }
             });
         return students;
@@ -54,12 +53,11 @@ public class SortStudents {
 
         Collections.sort(students,
             (Student s1, Student s2) -> {
-                float gradeDiff = s1.getGrade() - s2.getGrade();
-                if (0 == gradeDiff) {
-                    return s1.getGTID() - s2.getGTID();
-                } else {
-                    return (int) Math.ceil(gradeDiff);
+                int comp = Float.compare(s1.getGrade(), s2.getGrade());
+                if (0 == comp) {
+                    comp = s1.getGTID() - s2.getGTID();
                 }
+                return comp;
             });
         return students;
     }
