@@ -25,42 +25,10 @@ public class SortStudents {
         return students;
     }
 
-    public static List<Student> sortByGradeComparator(
+    public static List<Student> sortByGrade(
             List<Student> students) {
 
-        Collections.sort(students, new GradeComparator());
-        return students;
-    }
-
-    public static List<Student> sortByGradeAnonymousClass(
-            List<Student> students) {
-
-        Collections.sort(students,
-            new Comparator<Student>() {
-                public int compare(Student s1, Student s2) {
-                    float gradeDiff = s1.getGrade() - s2.getGrade();
-                    if (0 == gradeDiff) {
-                        return s1.getGTID() - s2.getGTID();
-                    } else {
-                        return (int) Math.ceil(gradeDiff);
-                    }
-                }
-            });
-        return students;
-    }
-
-    public static List<Student> sortByGradeLambda(
-            List<Student> students) {
-
-        Collections.sort(students,
-            (Student s1, Student s2) -> {
-                float gradeDiff = s1.getGrade() - s2.getGrade();
-                if (0 == gradeDiff) {
-                    return s1.getGTID() - s2.getGTID();
-                } else {
-                    return (int) Math.ceil(gradeDiff);
-                }
-            });
+        // TODO
         return students;
     }
 }
